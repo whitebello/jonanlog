@@ -8,7 +8,6 @@ public class JonanlogApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(JonanlogApplication.class, args);
-        // 수정 커밋 테스트
     }
 
 }
