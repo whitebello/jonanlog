@@ -3,6 +3,7 @@ package com.jonanlog.api.service;
 import com.jonanlog.api.domain.Post;
 import com.jonanlog.api.repository.PostRepository;
 import com.jonanlog.api.request.PostCreate;
+import com.jonanlog.api.response.PostResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -56,13 +57,13 @@ class PostServiceTest {
         postRepository.save(requestPost);
 
         // when
-        Post post = postService.get(requestPost.getId());
+        PostResponse response = postService.get(requestPost.getId());
 
         // then
-        assertNotNull(post);
+        assertNotNull(response);
         assertEquals(1L, postRepository.count());
-        assertEquals("foo", post.getTitle());
-        assertEquals("bar", post.getContent());
+        assertEquals("foo", response.getTitle());
+        assertEquals("bar", response.getContent());
     }
 
 }
