@@ -6,6 +6,7 @@ import com.jonanlog.api.service.PostService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,9 +31,10 @@ public class PostController {
     }
 
     // 다건 조회 API
+    // 게시글이 많을 수럭
     @GetMapping("/posts")
-    public List<PostResponse> getLists() {
-        return postService.getList();
+    public List<PostResponse> getLists(Pageable pageable) {
+        return postService.getList(pageable);
     }
 
 }
